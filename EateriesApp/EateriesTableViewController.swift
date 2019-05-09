@@ -44,18 +44,29 @@ class EateriesTableViewController: UITableViewController {
         return cell
     }
     
-    func showAlert(_ index: Int) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: "Choose an action", preferredStyle: .actionSheet)
-        let call = UIAlertAction(title: "Call us: +5555-555-55\(index)", style: .default, handler: nil)
+        let call = UIAlertAction(title: "Call us: +5555-555-55\(indexPath.row)", style: .default) {
+            (action: UIAlertAction) -> Void in
+            
+            let alertController = UIAlertController(title: nil, message: "Call cannot be completed", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(ok)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        let isVisited = UIAlertAction(title: "I was here", style: .default) {(action) in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        }
+        
         let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(action)
         alert.addAction(call)
+        alert.addAction(isVisited)
+        alert.addAction(action)
+        
         present(alert, animated: true, completion: nil)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(indexPath.row)
     }
 
 }
