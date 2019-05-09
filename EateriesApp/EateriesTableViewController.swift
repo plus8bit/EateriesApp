@@ -13,6 +13,8 @@ class EateriesTableViewController: UITableViewController {
     let restaurantNames = ["DANDELYAN", "AMERICAN BAR", "MANHATTAN", "THE NOMAD", "CONNAUGHT BAR", "BAR TERMINI", "THE CLUMSIES", "ATLAS", "DANTE", "THE OLD MAN", "LICORERIA LIMANTOUR", "HIGH FIVE", "NATIVE", "ATTABOY", "THE DEAD RABBIT"]
     
     let restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan-Interior.jpg", "The_NoMad_Bar_Daniel_Krieger.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man_1.jpg", "Limantour_Exterior_1.jpg", "HighFive.jpg", "Native2.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
+    
+    var restaurantIsVisited = [Bool](repeatElement(false, count: 15))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,9 @@ class EateriesTableViewController: UITableViewController {
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
         cell.thumbnailImageView.layer.cornerRadius = 13
         cell.thumbnailImageView.clipsToBounds = true
-        
         cell.nameLabel.text = restaurantNames[indexPath.row]
+        
+        cell.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
         
         return cell
     }
@@ -55,9 +58,11 @@ class EateriesTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         
-        let isVisited = UIAlertAction(title: "I was here", style: .default) {(action) in
+        let isVisitedTitle = self.restaurantIsVisited[indexPath.row] ? "I have not been here" : "I've been here"
+        let isVisited = UIAlertAction(title: isVisitedTitle, style: .default) { (alert) in
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
+            self.restaurantIsVisited[indexPath.row] = !self.restaurantIsVisited[indexPath.row]
+            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
         }
         
         let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -67,6 +72,9 @@ class EateriesTableViewController: UITableViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 
 }
