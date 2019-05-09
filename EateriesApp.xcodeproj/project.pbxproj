@@ -12,6 +12,7 @@
 		012031822283853A00B83969 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012031812283853A00B83969 /* Assets.xcassets */; };
 		012031852283853A00B83969 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012031832283853A00B83969 /* LaunchScreen.storyboard */; };
 		0120318D2283878A00B83969 /* EateriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120318C2283878A00B83969 /* EateriesTableViewController.swift */; };
+		0120318F228463E300B83969 /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120318E228463E300B83969 /* EateriesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		012031842283853A00B83969 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		012031862283853A00B83969 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0120318C2283878A00B83969 /* EateriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewController.swift; sourceTree = "<group>"; };
+		0120318E228463E300B83969 /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				0120317A2283853600B83969 /* AppDelegate.swift */,
 				0120317E2283853600B83969 /* Main.storyboard */,
+				0120318E228463E300B83969 /* EateriesTableViewCell.swift */,
 				0120318C2283878A00B83969 /* EateriesTableViewController.swift */,
 				012031812283853A00B83969 /* Assets.xcassets */,
 				012031832283853A00B83969 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				0120317B2283853600B83969 /* AppDelegate.swift in Sources */,
 				0120318D2283878A00B83969 /* EateriesTableViewController.swift in Sources */,
+				0120318F228463E300B83969 /* EateriesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
