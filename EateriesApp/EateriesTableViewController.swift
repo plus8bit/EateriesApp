@@ -10,9 +10,9 @@ import UIKit
 
 class EateriesTableViewController: UITableViewController {
     
-    let restaurantNames = ["DANDELYAN", "AMERICAN BAR", "MANHATTAN", "THE NOMAD", "CONNAUGHT BAR", "BAR TERMINI", "THE CLUMSIES", "ATLAS", "DANTE", "THE OLD MAN", "LICORERIA LIMANTOUR", "HIGH FIVE", "NATIVE", "ATTABOY", "THE DEAD RABBIT"]
+    var restaurantNames = ["DANDELYAN", "AMERICAN BAR", "MANHATTAN", "THE NOMAD", "CONNAUGHT BAR", "BAR TERMINI", "THE CLUMSIES", "ATLAS", "DANTE", "THE OLD MAN", "LICORERIA LIMANTOUR", "HIGH FIVE", "NATIVE", "ATTABOY", "THE DEAD RABBIT"]
     
-    let restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan-Interior.jpg", "The_NoMad_Bar_Daniel_Krieger.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man_1.jpg", "Limantour_Exterior_1.jpg", "HighFive.jpg", "Native2.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
+    var restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan-Interior.jpg", "The_NoMad_Bar_Daniel_Krieger.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man_1.jpg", "Limantour_Exterior_1.jpg", "HighFive.jpg", "Native2.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
     
     var restaurantIsVisited = [Bool](repeatElement(false, count: 15))
 
@@ -75,6 +75,21 @@ class EateriesTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            self.restaurantIsVisited.remove(at: indexPath.row)
+        }
+        
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    
+    
+    
+    
     
 
 }
