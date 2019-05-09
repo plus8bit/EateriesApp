@@ -43,5 +43,19 @@ class EateriesTableViewController: UITableViewController {
         
         return cell
     }
+    
+    func showAlert(_ index: Int) {
+        let alert = UIAlertController(title: nil, message: "Choose an action", preferredStyle: .actionSheet)
+        let call = UIAlertAction(title: "Call us: +5555-555-55\(index)", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        alert.addAction(call)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlert(indexPath.row)
+    }
 
 }
