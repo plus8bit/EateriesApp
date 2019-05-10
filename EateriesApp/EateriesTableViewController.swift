@@ -47,6 +47,7 @@ class EateriesTableViewController: UITableViewController {
         return cell
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: "Choose an action", preferredStyle: .actionSheet)
         let call = UIAlertAction(title: "Call us: +5555-555-55\(indexPath.row)", style: .default) {
@@ -56,6 +57,7 @@ class EateriesTableViewController: UITableViewController {
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(ok)
             self.present(alertController, animated: true, completion: nil)
+            
         }
         
         let isVisitedTitle = self.restaurantIsVisited[indexPath.row] ? "I have not been here" : "I've been here"
@@ -75,18 +77,9 @@ class EateriesTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            self.restaurantNames.remove(at: indexPath.row)
-            self.restaurantImages.remove(at: indexPath.row)
-            self.restaurantIsVisited.remove(at: indexPath.row)
-        }
-        
-        tableView.deleteRows(at: [indexPath], with: .fade)
-    }
+ 
      */
+ 
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
