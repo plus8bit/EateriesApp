@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "TheDeadRabbit.jpg",
+      "filename" : "respublika.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TheDeadRabbit@2x.jpg",
+      "filename" : "respublika@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TheDeadRabbit@3x.jpg",
+      "filename" : "respublika@3x.jpg",
       "scale" : "3x"
     }
   ],

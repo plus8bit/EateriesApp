@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "love.jpg",
+      "filename" : "dastarhan.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "love@2x.jpg",
+      "filename" : "dastarhan@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "love@3x.jpg",
+      "filename" : "dastarhan@3x.jpg",
       "scale" : "3x"
     }
   ],

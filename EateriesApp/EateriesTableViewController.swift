@@ -12,7 +12,7 @@ class EateriesTableViewController: UITableViewController {
     
     var restaurantNames = ["DANDELYAN", "AMERICAN BAR", "MANHATTAN", "THE NOMAD", "CONNAUGHT BAR", "BAR TERMINI", "THE CLUMSIES", "ATLAS", "DANTE", "THE OLD MAN", "LICORERIA LIMANTOUR", "HIGH FIVE", "NATIVE", "ATTABOY", "THE DEAD RABBIT"]
     
-    var restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan-Interior.jpg", "The_NoMad_Bar_Daniel_Krieger.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man_1.jpg", "Limantour_Exterior_1.jpg", "HighFive.jpg", "Native2.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
+    var restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan.jpg", "The_NoMad.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man.jpg", "Limantour.jpg", "HighFive.jpg", "Native.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
     
     var restaurantIsVisited = [Bool](repeatElement(false, count: 15))
 
@@ -103,6 +103,15 @@ class EateriesTableViewController: UITableViewController {
         share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         delete.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
         return [delete, share]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationVC = segue.destination as! EateryDetailViewController
+                destinationVC.imageName = self.restaurantImages[indexPath.row]
+            }
+        }
     }
 
     
