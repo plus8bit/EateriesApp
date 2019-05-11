@@ -10,11 +10,23 @@ import UIKit
 
 class EateriesTableViewController: UITableViewController {
     
-    var restaurantNames = ["DANDELYAN", "AMERICAN BAR", "MANHATTAN", "THE NOMAD", "CONNAUGHT BAR", "BAR TERMINI", "THE CLUMSIES", "ATLAS", "DANTE", "THE OLD MAN", "LICORERIA LIMANTOUR", "HIGH FIVE", "NATIVE", "ATTABOY", "THE DEAD RABBIT"]
-    
-    var restaurantImages = ["Dandelyan.jpg", "American_Bar.jpg", "Manhattan.jpg", "The_NoMad.jpg", "Connaught.jpg", "Bar-Termini.jpg", "TheClumsies.jpg", "Atlas.jpg", "Dante.jpg", "The_Old_Man.jpg", "Limantour.jpg", "HighFive.jpg", "Native.jpg", "Attaboy.jpg", "TheDeadRabbit.jpg"]
-    
-    var restaurantIsVisited = [Bool](repeatElement(false, count: 15))
+    var restaurants: [Restaurant] = [
+        Restaurant(name: "DANDELYAN", type: "Restaurant", location: "London", image: "Dandelyan.jpg", isVisited: false),
+        Restaurant(name: "AMERICAN BAR", type: "Bar", location: "London", image: "American_Bar.jpg", isVisited: false),
+        Restaurant(name: "MANHATTAN", type: "Restaurant", location: "New York", image: "Manhattan.jpg", isVisited: false),
+        Restaurant(name: "THE NOMAD", type: "Restaurant", location: "New York", image: "The_NoMad.jpg", isVisited: false),
+        Restaurant(name: "CONNAUGHT BAR", type: "Restaurant", location: "London", image: "Connaught.jpg", isVisited: false),
+        Restaurant(name: "BAR TERMINI", type: "Bar", location: "London", image: "Bar-Termini.jpg", isVisited: false),
+        Restaurant(name: "THE CLUMSIES", type: "restaurant", location: "Greece", image: "TheClumsies.jpg", isVisited: false),
+        Restaurant(name: "ATLAS", type: "restaurant", location: "Georgia", image: "Atlas.jpg", isVisited: false),
+        Restaurant(name: "DANTE", type: "restaurant", location: "Boston", image: "Dante.jpg", isVisited: false),
+        Restaurant(name: "THE OLD MAN", type: "restaurant", location: "Vietnam", image: "The_Old_Man.jpg", isVisited: false),
+        Restaurant(name: "LICORERIA LIMANTOUR", type: "restaurant", location: "Mexico", image: "Limantour.jpg", isVisited: false),
+        Restaurant(name: "HIGH FIVE", type: "restaurant", location: "Chicago", image: "HighFive.jpg", isVisited: false),
+        Restaurant(name: "NATIVE", type: "restaurant", location: "Colorado", image: "Native.jpg", isVisited: false),
+        Restaurant(name: "ATTABOY", type: "restaurant", location: "New York", image: "Attaboy.jpg", isVisited: false),
+        Restaurant(name: "THE DEAD RABBIT", type: "restaurant", location: "New York", image: "TheDeadRabbit.jpg", isVisited: false)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +42,19 @@ class EateriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return restaurantNames.count
+        return restaurants.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
         
-        cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
+        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
         cell.thumbnailImageView.layer.cornerRadius = 13
         cell.thumbnailImageView.clipsToBounds = true
-        cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.nameLabel.text = restaurants[indexPath.row].name
         
-        cell.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
+        cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
         
         return cell
     }
@@ -85,8 +97,8 @@ class EateriesTableViewController: UITableViewController {
         
         let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
             
-            let defaultText = "I'm at \(self.restaurantNames[indexPath.row]) now"
-            if let image = UIImage(named: self.restaurantImages[indexPath.row]) {
+            let defaultText = "I'm at \(self.restaurants[indexPath.row].name) now"
+            if let image = UIImage(named: self.restaurants[indexPath.row].image) {
                 let activityController = UIActivityViewController(activityItems: [defaultText, image], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
@@ -94,9 +106,7 @@ class EateriesTableViewController: UITableViewController {
         
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-            self.restaurantNames.remove(at: indexPath.row)
-            self.restaurantImages.remove(at: indexPath.row)
-            self.restaurantIsVisited.remove(at: indexPath.row)
+            self.restaurants.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -109,10 +119,13 @@ class EateriesTableViewController: UITableViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationVC = segue.destination as! EateryDetailViewController
-                destinationVC.imageName = self.restaurantImages[indexPath.row]
+                destinationVC.imageName = self.restaurants[indexPath.row].image
             }
         }
     }
+    
+    
+
 
     
     

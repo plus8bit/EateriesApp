@@ -14,6 +14,7 @@
 		0120318D2283878A00B83969 /* EateriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120318C2283878A00B83969 /* EateriesTableViewController.swift */; };
 		0120318F228463E300B83969 /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120318E228463E300B83969 /* EateriesTableViewCell.swift */; };
 		012031912285DF9300B83969 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012031902285DF9300B83969 /* EateryDetailViewController.swift */; };
+		01364CC422874DCF00BA5AF7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01364CC322874DCF00BA5AF7 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0120318C2283878A00B83969 /* EateriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewController.swift; sourceTree = "<group>"; };
 		0120318E228463E300B83969 /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
 		012031902285DF9300B83969 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
+		01364CC322874DCF00BA5AF7 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				0120317A2283853600B83969 /* AppDelegate.swift */,
 				0120317E2283853600B83969 /* Main.storyboard */,
+				01364CC322874DCF00BA5AF7 /* Restaurant.swift */,
 				012031902285DF9300B83969 /* EateryDetailViewController.swift */,
 				0120318E228463E300B83969 /* EateriesTableViewCell.swift */,
 				0120318C2283878A00B83969 /* EateriesTableViewController.swift */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01364CC422874DCF00BA5AF7 /* Restaurant.swift in Sources */,
 				0120317B2283853600B83969 /* AppDelegate.swift in Sources */,
 				0120318D2283878A00B83969 /* EateriesTableViewController.swift in Sources */,
 				012031912285DF9300B83969 /* EateryDetailViewController.swift in Sources */,
